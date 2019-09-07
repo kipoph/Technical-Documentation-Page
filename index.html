@@ -23,9 +23,41 @@
     </nav>
     <main id="main-doc">
         <section class="main-section">
-            <header>
-
-            </header>
+            <header><h2>Introdution</h2></header>
+            <article>
+                <p>
+                        Everything in CSS has a box around it, and understanding these boxes is key to being able to create layouts with CSS, or to align items with other items. In this lesson we will take a proper look at the CSS Box Model, in order that you can move onto more complex layout tasks with an understanding of how it works and the terminology that relates to it.
+                </p>
+            </article>
         </section>
+        <section class="main-section">
+            <header><h2>Block and inline boxes</h2></header>
+            <article>
+                <p>
+                        In CSS we broadly have two types of box — <strong>block boxes</strong> and <strong>inline boxes</strong>. These characteristics refer to how the box behaves in terms of page flow, and in relation to other boxes on the page:
+                </p>
+                <p>
+                    If a box is defined as a block, it will behave in the following ways:
+                </p>
+                <ul>
+                    <li>
+                        The box will extend in the inline direction to fill the space available in its container. In most cases this means that the box will become as wide as its container, filling up 100% of the space available.
+                    </li>
+                    <li>
+                            The box will break onto a new line.
+                    </li>
+                    <li>
+                            The width and height properties are respected.
+                    </li>
+                    <li>
+                            Padding, margin and border will cause other elements to be pushed away from the box
+                    </li>
+                </ul>
+                <p>
+                    Unless we decide to change the display type to inline, elements such as headings (e.g. <code>&lt;h1&gt;</code>) and <code>&lt;p&gt;</code>s all use block as their outer display type by default.
+                </p>
+            </article>
+        </section>      
     </main>
 </body>
+<!-- <code>&lt;h1&gt;</code> -->

@@ -33,3 +33,21 @@ body{
     color: black;
 
 }
+#main-doc{
+    position: absolute;
+    left:303px;
+    margin:1.8rem;
+}
+#main-doc section{
+    border-bottom: 2px dotted;
+}
+#main-doc header{
+    text-align: center;
+}
+#main-doc li{
+    margin-bottom: 3px;
+}
+code{
+    font-family: monospace, monospace;
+}
+
