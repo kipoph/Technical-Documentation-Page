@@ -37,6 +37,7 @@ body{
     position: absolute;
     left:303px;
     margin:1.8rem;
+    margin-right:10rem;
 }
 #main-doc section{
     border-bottom: 2px dotted;
