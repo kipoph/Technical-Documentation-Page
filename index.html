@@ -26,7 +26,7 @@
             <header><h2>Introdution</h2></header>
             <article>
                 <p>
-                        Everything in CSS has a box around it, and understanding these boxes is key to being able to create layouts with CSS, or to align items with other items. In this lesson we will take a proper look at the CSS Box Model, in order that you can move onto more complex layout tasks with an understanding of how it works and the terminology that relates to it.
+                    Everything in CSS has a box around it, and understanding these boxes is key to being able to create layouts with CSS, or to align items with other items. In this lesson we will take a proper look at the CSS Box Model, in order that you can move onto more complex layout tasks with an understanding of how it works and the terminology that relates to it.
                 </p>
             </article>
         </section>
@@ -34,7 +34,7 @@
             <header><h2>Block and inline boxes</h2></header>
             <article>
                 <p>
-                        In CSS we broadly have two types of box — <strong>block boxes</strong> and <strong>inline boxes</strong>. These characteristics refer to how the box behaves in terms of page flow, and in relation to other boxes on the page:
+                    In CSS we broadly have two types of box — <strong>block boxes</strong> and <strong>inline boxes</strong>. These characteristics refer to how the box behaves in terms of page flow, and in relation to other boxes on the page:
                 </p>
                 <p>
                     If a box is defined as a block, it will behave in the following ways:
@@ -44,24 +44,173 @@
                         The box will extend in the inline direction to fill the space available in its container. In most cases this means that the box will become as wide as its container, filling up 100% of the space available.
                     </li>
                     <li>
-                            The box will break onto a new line.
+                        The box will break onto a new line.
                     </li>
                     <li>
-                            The width and height properties are respected.
+                        The width and height properties are respected.
                     </li>
                     <li>
-                            Padding, margin and border will cause other elements to be pushed away from the box
+                        Padding, margin and border will cause other elements to be pushed away from the box
                     </li>
                 </ul>
                 <p>
                     Unless we decide to change the display type to inline, elements such as headings (e.g. <code>&lt;h1&gt;</code>) and <code>&lt;p&gt;</code>s all use block as their outer display type by default.
                 </p>
+                <p>
+                    If a box has an outer display type of <code>inline</code>, then:
+                </p>
+                <ul>
+                    <li>
+                        The box will not break onto a new line.
+                    </li>
+                    <li>
+                        The width and height properties will not apply.
+                    </li>
+                    <li>
+                        Padding, margin and borders will apply but will not cause other inline boxes to move away from the box.
+                    </li>
+                </ul>
+                <p>
+                    The <code>&lt;a&gt;</code> element, used for links, <code>&lt;span&gt;</code>, <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> are all examples of elements that will display inline by default.
+                </p>
+                <p>
+                    The type of box applied to an element is defined by <code>display</code> property values such as <code>block</code> and <code>inline</code>, and realates to the <strong>outer</strong> value of <code>display</code>.
+                </p>
             </article>
-        </section>      
-    </main>
+        </section>  
+        <section class="main-section">
+            <header><h2>Aside: Inner and outer display types</h2></header>
+            <article>
+                <p>
+                    At this point we'd better also explain <strong>inner</strong> and <strong>outer</strong> display types. As mentioned above, boxes in CSS have an outer display type, which details whether the box is block or inline.
+                </p>
+                <p>
+                    Boxes also have an <em>inner</em> display type, however, which dictates how elements inside that box are laid out. By default the elements inside a box are laid out in normal flow, which means that they behave just like any other block and inline elements (as explained above).
+                </p>
+                <p>
+                    We can however, change the inner display type by using <code>display</code> values like <code>flex</code>. If we set <code>display: flex;</code> on an element, the outer display type is <code>block</code>, but the inner display type is changed to <code>flex</code>. Any direct children of this box will become flex items, and will laid out according to the rules set out in the Flexbox spec, which you'll learn about later on.
+                </p>
+                <p>
+                    When you move on to learn about CSS Layout in more detail, you will encounter <code>flex</code>, and various other inner values that your boxes can have, for example <code>grid</code>.
+                </p>
+                <p>
+                    Block and inline layout however is the default way that things on the web behave — as we said above, it is sometimes referred to as normal flow, because without any other instruction, our boxes lay out as block or inline boxes.
+                </p>
+            </article>
+        </section>    
+        <section class="main-section">
+            <h2>Examples of different display types</h2>
+            <article>
+                <p>
+                    Let's move on and have a look at some examples. Below we have three different HTML elements, all of which have an outer display type of <code>block</code>. The first is a paragraph, which has a border added in CSS. The browser renders this as a block box, so the paragraph begins on a new line, and expands to the full width available to it.
+                </p>
+                <p>
+                    The second is a list, which is laid out using <code>display: flex</code>. This establishes flex layout for the items inside the container, however the list itself is a block box and — like the paragraph — expands to the full container width and breaks onto a new line.
+                </p>
+                <p>
+                    Below this we have a block level paragraph, inside which are two <code>&lt;span&gt;</code> elements. These elements would normally be <code>inline</code>, however one of the elements has a class of block, and we have set it to <code>display: block</code>.
+                </p>
+                <P>
+                    <iframe class="live-sample-frame" src="https://mdn.github.io/css-examples/learn/box-model/block.html" width="100%" height="1000" frameborder="0">
+                    #document
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="utf-8" />
+                        <title>Box Model: Block</title>
+                        <link rel="stylesheet" href="playable.css" />
+                        <style></style>
+                        
+                        <style class="editable">
+                            p,
+                            ul {
+                                border: 2px solid rebeccapurple;
+                                padding: 0.5em;
+                            }
+                            
+                            .block,
+                            li {
+                                border: 2px solid blue;
+                                padding: 0.5em;
+                            }
+                            
+                            ul {
+                                display: flex;
+                                list-style: none;
+                            }
+                            
+                            .block {
+                                display: block;
+                            }
+                        </style>
+                    </head>
+                    
+                    <body>
+                        <section class="preview">
+                            <p>I am a paragraph. A short one.</p>
+                            <ul>
+                                <li>Item One</li>
+                                <li>Item Two</li>
+                                <li>Item Three</li>
+                            </ul>
+                            <p>
+                                I am another paragraph. Some of the
+                                <span class="block">words</span> have been wrapped in a
+                                <span>span element</span>.
+                            </p>
+                        </section>
+                        
+                        <textarea class="playable playable-css" style="height: 400px;">
+                            
+                            p, 
+                            ul {
+                                border: 2px solid rebeccapurple;
+                                padding: .5em;
+                            }
+                            
+                            .block,
+                            li {
+                                border: 2px solid blue;
+                                padding: .5em;
+                            }
+                            
+                            ul {
+                                display: flex;
+                                list-style: none;
+                            }
+                            
+                            .block {
+                                display: block;
+                            }      
+                        </textarea>
+                        
+                        <textarea class="playable playable-html" style="height: 180px;">
+                            <p>I am a paragraph. A short one.</p>
+                            <ul>
+                                <li>Item One</li>
+                                <li>Item Two</li>
+                                <li>Item Three</li>
+                            </ul>
+                            <p>I am another paragraph. Some of the <span class="block">words</span> have been wrapped in a <span>span element</span>.</p>
+                        </textarea>
+                        
+                        <div class="playable-buttons">
+                            <input id="reset" type="button" value="Reset" />
+                        </div>
+                    </body>
+                    <script src="playable.js"></script>
+                    </html>
+                </iframe>
+                
+            </P>
+        </article>
+    </section>
+</main>
 </body>
 <!-- 
     <code>&lt;h1&gt;</code>
     
+    <pre><code>&lt;p&gt;</code></pre>
+    
     https://websemantics.uk/articles/displaying-code-in-web-pages/
- -->
+-->

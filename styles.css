@@ -49,5 +49,6 @@ body{
 }
 code{
     font-family: monospace, monospace;
+    background: rgb(231, 220, 220);
 }
 
