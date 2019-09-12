@@ -130,11 +130,15 @@ article a:hover{
 
 @media (max-width:861px){
     #navbar{
-        width: 150px;
+        width: 100%;
+        position:relative;
+        border-left:3px hsl(36, 90%, 27%) solid;
+        height: 30vh;
+        text-align: center;
     }
     #main-doc{
-        left:153px;
-        margin-left:0;
+        left:0;
+        margin-left:3px;
         margin-right: 1px;
     }
 }
